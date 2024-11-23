@@ -1,5 +1,5 @@
 blueprint:
-  name: 'Aqara - H1 Remote Switch Double Rocker'
+  name: 'Aqara - Smart Wall Switch H1 EU'
   description: 'Simple Blueprint for the H1 Remote Switch'
   domain: automation
   input:
@@ -8,7 +8,8 @@ blueprint:
       selector:
         device:
           integration: zha
-          model: lumi.switch.n2aeu1
+          manufacturer: Aqara
+          model: lumi.switch
     Left_Single:
       name: ◀️1️⃣ Left Single Press
       default: []
