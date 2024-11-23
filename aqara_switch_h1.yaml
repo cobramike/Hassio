@@ -1,0 +1,118 @@
+blueprint:
+  name: 'Deconz - Aqara - H1 Remote Switch Double Rocker'
+  description: 'Simple Blueprint for the H1 Remote Switch'
+  domain: automation
+  input:
+    remote:
+      name: Aqara H1 Double Rocker
+      selector:
+        device:
+          integration: deconz
+          model: lumi.switch.n2aeu1
+    Left_Single:
+      name: ◀️1️⃣ Left Single Press
+      default: []
+      selector:
+        action: {}
+    Left_long:
+      name: ◀️🕐 Left Long Press
+      default: []
+      selector:
+        action: {}
+    Left_2x:
+      name: ◀️2️⃣ Left 2x Press
+      default: []
+      selector:
+        action: {}
+    Left_3x:
+      name: ◀️3️⃣ Left 3x Press
+      default: []
+      selector:
+        action: {}
+    Right_Single:
+      name: ▶️1️⃣ Right Single Press
+      default: []
+      selector:
+        action: {}
+    Right_long:
+      name: ▶️🕐 Right Long Press
+      default: []
+      selector:
+        action: {}
+    Right_2x:
+      name: ▶️2️⃣ Right 2x Press
+      default: []
+      selector:
+        action: {}
+    Right_3x:
+      name: ▶️3️⃣ Right 3x Press
+      default: []
+      selector:
+        action: {}
+    Both_Single:
+      name: ◀️▶️1️⃣ Both Single Press
+      default: []
+      selector:
+        action: {}
+    Both_long:
+      name: ◀️▶️🕐 Both Long Press
+      default: []
+      selector:
+        action: {}
+    Both_2x:
+      name: ◀️▶️2️⃣ Both 2x Press
+      default: []
+      selector:
+        action: {}
+    Both_3x:
+      name: ◀️▶️3️⃣ Both 3x Press
+      default: []
+      selector:
+        action: {}
+
+mode: restart
+trigger:
+- platform: event
+  event_type: deconz_event
+  event_data:
+    device_id: !input 'remote'
+action:
+- variables:
+    event: '{{ trigger.event.data.event }}'
+- choose:
+  - conditions:
+    - '{{ event == 1002 }}'
+    sequence: !input 'Left_Single'
+  - conditions:
+    - '{{ event == 1003 }}'
+    sequence: !input 'Left_long'
+  - conditions:
+    - '{{ event == 1004 }}'
+    sequence: !input 'Left_2x'
+  - conditions:
+    - '{{ event == 1005 }}'
+    sequence: !input 'Left_3x'
+  - conditions:
+    - '{{ event == 2002 }}'
+    sequence: !input 'Right_Single'
+  - conditions:
+    - '{{ event == 2003 }}'
+    sequence: !input 'Right_long'
+  - conditions:
+    - '{{ event == 2004 }}'
+    sequence: !input 'Right_2x'
+  - conditions:
+    - '{{ event == 2005 }}'
+    sequence: !input 'Right_3x'
+  - conditions:
+    - '{{ event == 3002 }}'
+    sequence: !input 'Both_Single'
+  - conditions:
+    - '{{ event == 3003 }}'
+    sequence: !input 'Both_long'
+  - conditions:
+    - '{{ event == 3004 }}'
+    sequence: !input 'Both_2x'
+  - conditions:
+    - '{{ event == 3005 }}'
+    sequence: !input 'Both_3x'
