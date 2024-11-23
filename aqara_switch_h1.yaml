@@ -8,8 +8,7 @@ blueprint:
       selector:
         device:
           integration: zha
-          manufacturer: Aqara
-          model: lumi.switch
+          manufacturer: LUMI
     Left_Single:
       name: ◀️1️⃣ Left Single Press
       default: []
