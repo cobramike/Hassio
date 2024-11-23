@@ -7,7 +7,7 @@ blueprint:
       name: Aqara H1 Double Rocker
       selector:
         device:
-          integration: Aqara
+          integration: zha
           model: lumi.switch.n2aeu1
     Left_Single:
       name: ◀️1️⃣ Left Single Press
