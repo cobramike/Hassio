@@ -1,5 +1,5 @@
 blueprint:
-  name: 'Deconz - Aqara - H1 Remote Switch Double Rocker'
+  name: 'Aqara - H1 Remote Switch Double Rocker'
   description: 'Simple Blueprint for the H1 Remote Switch'
   domain: automation
   input:
@@ -7,7 +7,7 @@ blueprint:
       name: Aqara H1 Double Rocker
       selector:
         device:
-          integration: deconz
+          integration: Aqara
           model: lumi.switch.n2aeu1
     Left_Single:
       name: ◀️1️⃣ Left Single Press
